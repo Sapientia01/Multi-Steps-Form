@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Split into two sides -->
+      <div class="progress-side">
+        <h2>Registration Steps</h2>
+        <div class="progress-bar">
+          <div class="step" data-step="0">
+            <div class="bullet">
+              <span>1</span>
+            </div>
+            <p>Basic Info</p>
+          </div>
+          <div class="step" data-step="1">
+            <div class="bullet">
+              <span>2</span>
+            </div>
+            <p>Contact</p>
+          </div>
+          <div class="step" data-step="2">
+            <div class="bullet">
+              <span>3</span>
+            </div>
+            <p>Security</p>
+          </div>
+          <div class="step" data-step="3">
+            <div class="bullet">
+              <span>4</span>
+            </div>
+            <p>Finish</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-side">
+        <form id="multiStepForm">
+          <div class="form-outer">
+            <div class="page" data-step="0">
+              <div class="title">Basic Info</div>
+              <div class="field">
+                <div class="label">First Name</div>
+                <input type="text" required />
+              </div>
+              <div class="field">
+                <div class="label">Last Name</div>
+                <input type="text" required />
+              </div>
+              <div class="field">
+                <button class="next-btn">Next</button>
+              </div>
+            </div>
+
+            <div class="page" data-step="1">
+              <div class="title">Contact Info</div>
+              <div class="field">
+                <div class="label">Email</div>
+                <input type="email" required />
+              </div>
+              <div class="field">
+                <div class="label">Phone</div>
+                <input type="tel" required />
+              </div>
+              <div class="field btns">
+                <button class="prev-btn">Previous</button>
+                <button class="next-btn">Next</button>
+              </div>
+            </div>
+
+            <div class="page" data-step="2">
+              <div class="title">Security</div>
+              <div class="field">
+                <div class="label">Password</div>
+                <input type="password" required />
+              </div>
+              <div class="field">
+                <div class="label">Confirm Password</div>
+                <input type="password" required />
+              </div>
+              <div class="field btns">
+                <button class="prev-btn">Previous</button>
+                <button class="next-btn">Next</button>
+              </div>
+            </div>
+
+            <div class="page" data-step="3">
+              <div class="title">Complete!</div>
+              <div class="field">
+                <div class="label">Terms and Conditions</div>
+                <input type="checkbox" required /> I agree to the terms and
+                conditions
+              </div>
+              <div class="field btns">
+                <button class="prev-btn">Previous</button>
+                <button class="submit-btn">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

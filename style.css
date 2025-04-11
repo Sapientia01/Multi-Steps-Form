@@ -1,0 +1,628 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  height: 550px;
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.progress-side {
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  color: white;
+}
+
+.progress-side h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/images/bg-sidebar-desktop.svg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.progress-bar .step {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: start;
+}
+
+.progress-bar .step p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  margin-left: 25px;
+  line-height: 25px;
+}
+.progress-bar .step p span {
+  color: #aaa;
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.progress-bar .step .bullet {
+  position: relative;
+  height: 35px;
+  width: 35px;
+  border: 2px solid #fff;
+  display: inline-block;
+  border-radius: 50%;
+  transition: 0.2s;
+  background-color: #483eff;
+  z-index: 2;
+}
+
+.progress-bar .step .bullet span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.progress-bar .step .bullet.active {
+  background: #fff;
+}
+
+.progress-bar .step .bullet.active span {
+  color: #4070f4;
+}
+
+.progress-bar .step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  height: 46px;
+  width: 2px;
+  background: #fff;
+  left: 17px;
+  top: 35px;
+}
+.progress-bar .step.active p {
+  color: #fff;
+  font-weight: bold;
+}
+
+.progress-bar .step {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.progress-bar .step.active {
+  opacity: 1;
+}
+
+.form-side {
+  flex: 1;
+  padding: 40px;
+  position: relative;
+  max-width: 550px;
+  height: 100%;
+}
+
+.form-outer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.form-outer .page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: none;
+}
+
+.form-outer .page.active {
+  display: block;
+}
+
+.form-outer .page .title {
+  text-align: left;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.form-outer .page .field {
+  position: relative;
+}
+
+.form-outer .page .field .label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-outer .page .field input {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  padding: 15px 15px;
+  font-size: 16px;
+}
+.buttons-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prev-btn {
+  color: #9699ab;
+  background: transparent;
+  padding: 12px 24px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.next-btn {
+  background: #02295a;
+  color: white;
+  padding: 17px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.next-btn:hover {
+  background: #174a8b;
+}
+.prev-btn:hover {
+  color: #02295a;
+  font-weight: 700;
+}
+
+.form-outer .page .field input.error {
+  border-color: #ff3860;
+}
+
+.error-message {
+  color: #ff3860;
+  font-size: 12px;
+  font-weight: 500;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.description {
+  color: #9699ab;
+  margin-bottom: 30px;
+}
+
+.form-outer .page .field input::placeholder {
+  color: #9e9e9e;
+}
+
+.plans {
+  display: flex;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.plan-card {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.plan-card:hover {
+  border-color: #4070f4;
+}
+
+.plan-card.selected {
+  border-color: #4070f4;
+  background-color: #f8f9fe;
+}
+
+.plan-icon {
+  margin-bottom: 40px;
+}
+
+.plan-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.plan-info h3 {
+  color: #02295a;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.plan-price {
+  color: #9699ab;
+  font-size: 14px;
+}
+
+.yearly-bonus {
+  color: #02295a;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.billing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background-color: #f8f9fe;
+  border-radius: 8px;
+  margin: 30px 0;
+}
+
+.toggle-option {
+  color: #9699ab;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.toggle-option.active {
+  color: #02295a;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #02295a;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.add-ons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 30px 0;
+}
+
+.add-on-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-on-card:hover {
+  border-color: #4070f4;
+}
+
+.add-on-card.selected {
+  border-color: #4070f4;
+  background-color: #f8f9fe;
+}
+
+.checkbox-wrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-wrapper label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.checkbox-wrapper label:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked ~ label {
+  background-color: #4070f4;
+  border-color: #4070f4;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked ~ label:after {
+  display: block;
+}
+
+.add-on-info {
+  flex: 1;
+}
+
+.add-on-info h3 {
+  color: #02295a;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.add-on-info p {
+  color: #9699ab;
+  font-size: 14px;
+}
+
+.add-on-price {
+  color: #4070f4;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Update and add these styles */
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.field label {
+  color: #02295a;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.field input {
+  width: 100%;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #02295a;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.field input::placeholder {
+  color: #9699ab;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #02295a;
+}
+
+.field input.error {
+  border-color: #ee374a;
+}
+
+/* Add these new styles for the summary page */
+.summary-box {
+  background-color: #f8f9fe;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.plan-summary {
+  padding: 20px;
+  background-color: #f8f9fe;
+  border-radius: 8px;
+}
+
+.selected-plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.selected-plan h3 {
+  color: #02295a;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.change-btn {
+  background: none;
+  border: none;
+  color: #9699ab;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+}
+
+.change-btn:hover {
+  color: #473dff;
+}
+
+.plan-cost {
+  color: #02295a;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ddd;
+  margin: 20px 0;
+}
+
+.addons-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.addon-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addon-name {
+  color: #9699ab;
+  font-size: 14px;
+}
+
+.addon-cost {
+  color: #02295a;
+  font-size: 14px;
+}
+
+.total-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.total-label {
+  color: #9699ab;
+  font-size: 14px;
+}
+
+.total-cost {
+  color: #473dff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.confirm-btn {
+  background: #473dff;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.confirm-btn:hover {
+  background: #665aff;
+}
+
+/* Add these styles for the thank you page */
+.thank-you-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.thank-you-content {
+  max-width: 450px;
+}
+
+.icon-thank-you {
+  margin-bottom: 32px;
+}
+
+.thank-you-page h1 {
+  color: #02295a;
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+
+.thank-you-page p {
+  color: #9699ab;
+  line-height: 1.5;
+}

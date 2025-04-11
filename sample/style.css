@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.progress-side {
+  width: 300px;
+  padding: 30px;
+  background: #4070f4;
+  border-radius: 10px 0 0 10px;
+  color: white;
+}
+
+.progress-side h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-side {
+  flex: 1;
+  padding: 30px;
+  position: relative;
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.progress-bar .step {
+  position: relative;
+  cursor: pointer;
+}
+
+.progress-bar .step p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  margin-left: 40px;
+}
+
+.progress-bar .step .bullet {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  border: 2px solid #fff;
+  display: inline-block;
+  border-radius: 50%;
+  transition: 0.2s;
+  background: transparent;
+}
+
+.progress-bar .step .bullet span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.progress-bar .step .bullet.active {
+  background: #fff;
+}
+
+.progress-bar .step .bullet.active span {
+  color: #4070f4;
+}
+
+.progress-bar .step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 2px;
+  background: #fff;
+  left: 15px;
+  top: 30px;
+}
+
+.form-outer {
+  width: 100%;
+  position: relative;
+}
+
+.form-outer .page {
+  width: 100%;
+  position: relative;
+  display: none;
+}
+
+.form-outer .page.active {
+  display: block;
+}
+
+.form-outer .page .title {
+  text-align: left;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.form-outer .page .field {
+  height: 45px;
+  width: 100%;
+  margin: 45px 0;
+  position: relative;
+}
+
+.form-outer .page .field .label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.form-outer .page .field input {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+.form-outer .page .field button {
+  width: 100%;
+  height: calc(100% + 5px);
+  margin-top: -20px;
+  border: none;
+  background: #4070f4;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+
+.form-outer .page .field button:hover {
+  background: #000;
+}
+
+.form-outer .page .btns button {
+  margin-top: -20px !important;
+  width: 100%;
+  height: calc(100% + 5px);
+  border: none;
+  background: #4070f4;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+  margin-right: 3px;
+}
+
+.btns {
+  display: flex;
+  gap: 15px;
+}
+
+.form-outer .page .field input.error {
+  border-color: #ff3860;
+}
+
+.progress-bar .step.active p {
+  color: #fff;
+  font-weight: bold;
+}
+
+.progress-bar .step {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.progress-bar .step.active {
+  opacity: 1;
+}
+
+.error-message {
+  color: #ff3860;
+  font-size: 14px;
+  margin-top: 5px;
+  position: absolute;
+  bottom: -20px;
+}
+
+.field {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.success-message {
+  text-align: center;
+  padding: 40px;
+}
+
+.success-message h2 {
+  color: #4070f4;
+  margin-bottom: 20px;
+}
+
+.success-message p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.success-message button {
+  padding: 10px 20px;
+  background: #4070f4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.success-message button:hover {
+  background: #2050d4;
+}
