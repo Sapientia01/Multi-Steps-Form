@@ -65,7 +65,7 @@ function validateEmail(email) {
 }
 
 function validatePhone(phone) {
-  return /^\+\d{1,3}\s\d{3}\s\d{3}\s\d{3}$/.test(phone);
+  return /^\+\d{1,3}\s\d{9}$/.test(phone);
 }
 
 function validatePassword(password) {
@@ -104,7 +104,7 @@ function validateCurrentStep() {
         case "tel":
           if (!validatePhone(input.value)) {
             isValid = false;
-            showError(input, "Format: +x xxx xxx xxx");
+            showError(input, "Format: +x xxxxxxxxx");
           }
           break;
         case "password":
